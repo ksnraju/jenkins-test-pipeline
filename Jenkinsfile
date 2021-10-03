@@ -8,7 +8,7 @@ pipeline{
     stage('Build'){
       steps{
         echo 'Building...'
-        def customImage = docker.build("${REPO}:${env.BUILD_ID}")
+        customImage = docker.build("${REPO}:${env.BUILD_ID}")
         
       }
     }
