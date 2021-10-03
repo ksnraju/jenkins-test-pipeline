@@ -8,7 +8,9 @@ pipeline{
     stage('Build'){
       steps{
         echo 'Building...'
-        customImage = docker.build("${REPO}:${env.BUILD_ID}")
+        script{
+          customImage = docker.build("${REPO}:${env.BUILD_ID}")
+        }
         
       }
     }
@@ -20,8 +22,10 @@ pipeline{
     stage('Deploy'){
       steps{
         echo 'Deploying...'
-        docker.withRegistry('',"${REGISTRY_CREDENTIAL}"){
-          customImage.push()
+        script{
+          docker.withRegistry('',"${REGISTRY_CREDENTIAL}"){
+            customImage.push()
+          }
         }
       }
     }
