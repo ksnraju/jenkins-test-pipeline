@@ -2,7 +2,7 @@ pipeline{
   agent any
   environment{
     REPO="docker.io/ksnraju/test-pipeline"
-    REGISTRY_CREDENTIAL = "docker-hub-ksnraju-jenkins-token"
+    REGISTRY_CREDENTIAL = "docker-hub-token-2"
   }
   stages{
     stage('Build'){
